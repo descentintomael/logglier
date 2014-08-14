@@ -12,7 +12,7 @@ module Logglier
     client = Logglier::Client.new(url, opts)
     logger = (opts[:logger_class] || Logger).new(client)
 
-    if client.respond_to?(:formatter)
+    if client.respond_to?(:formatter=)
       logger.formatter = client.formatter
     elsif client.respond_to?(:datetime_format)
       logger.datetime_format = client.datetime_format
